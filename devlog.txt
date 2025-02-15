@@ -1,4 +1,14 @@
 15-02-15 Saturday
+Made this devlog, will write about it on actual blog all the technical stuff
+
+Monitor Monkey:
+* Waiting on payment processor to approve me
+* The from email now says "Monitor Monkey" not admin
+* Updated the agent to get the top 2 most used disks on first run. Before this was just getting whatever I had set in the defaults (/ & /home)
+
+#devlog #monitormonkey
+
+15-02-14 Friday
 First line needs to be here
 
 Second can be anwhere
@@ -14,17 +24,4 @@ three backticks
 ```
 
 blah
-#tags #just #after #last #line
-
-15-02-14 Friday
-This is a test
-
-
-
-15-02-13 Thursday
-This is a also a test
-#but #with #tags
-
-
-15-02-15 Saturday
-We don't need tags to serperate 
+#example #devlog
