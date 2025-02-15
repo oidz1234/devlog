@@ -15,3 +15,12 @@ three backticks
 
 blah
 #tags #just #after #last #line
+
+15-02-14 Friday
+This is a test
+
+
+
+15-02-13 Thursday
+This is a also a test
+#but #with #tags
