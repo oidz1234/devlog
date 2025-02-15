@@ -1,0 +1,26 @@
+# Vim temporary files
+*.swp
+*.swo
+*.swn
+*.un~
+*.swpx
+*.swx
+
+# Vim backup files
+*~
+*.bak
+*.backup
+*.tmp
+
+# Vim session files
+Session.vim
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+.env
+
+
