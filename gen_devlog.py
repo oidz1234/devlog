@@ -9,13 +9,13 @@ import os
 # Configuration
 CONFIG = {
     # GitHub repository settings
-    'REPO_OWNER': 'your-username',     # Your GitHub username
-    'REPO_NAME': 'your-repo',          # Your repository name
+    'REPO_OWNER': 'oidz1234',     # Your GitHub username
+    'REPO_NAME': 'devlog',          # Your repository name
     'FILE_PATH': 'devlog.txt',         # Path to devlog.txt in your repo
     
     # Output settings
     'TEMPLATE_PATH': 'template.html',   # Path to template file
-    'OUTPUT_DIR': 'public',            # Directory where the HTML will be generated
+    'OUTPUT_DIR': '/srv/devlog/',            # Directory where the HTML will be generated
     'OUTPUT_FILENAME': 'index.html',    # Name of the generated HTML file
     
     # Optional: Set these via environment variables
