@@ -1,7 +1,5 @@
-2024-02-15
-Added new authentication system to the backend. Working on implementing JWT tokens.
-#backend #auth
+2025-12-24
 
-2024-02-14
-Designed new landing page mockups. Still need to implement responsive design.
-#frontend #design
+Blah
+
+#test
