@@ -142,7 +142,7 @@ def generate_html(template_path, entries, tags):
     entries_html = ''
     for entry in sorted(entries, key=lambda x: x['date'], reverse=True):
         tags_html = '\n'.join([
-            f'<span class="tag">{tag}</span>'
+            f'<span class="tag" onclick="filterByTag(\'{tag}\')">{tag}</span>'
             for tag in entry['tags']
         ])
 
