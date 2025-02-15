@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marks DevLog</title>
+    <title>Marks Devlog</title>
     <style>
         body {
             font-family: monospace;
@@ -74,60 +74,13 @@
     </style>
 </head>
 <body>
-    <h1>DEVLOG</h1>
+    <h1><a href="https://mark.mcnally.je">MARKS</a> DEVLOG </h1>
     <div id="tag-filter">
         <button onclick="filterByTag('all')" class="active">ALL</button>
-        <!-- Example tags (will be replaced by script) -->
-        <button onclick="filterByTag('backend')">BACKEND</button>
-        <button onclick="filterByTag('api')">API</button>
-        <button onclick="filterByTag('frontend')">FRONTEND</button>
-        <button onclick="filterByTag('ui')">UI</button>
-        <button onclick="filterByTag('devops')">DEVOPS</button>
-        <button onclick="filterByTag('deployment')">DEPLOYMENT</button>
+        <!-- Tags will be dynamically inserted here -->
     </div>
     <div id="entries">
-        <!-- Example entries (will be replaced by script) -->
-        <div class="entry" data-tags="backend api">
-            <div class="date">2024-02-15</div>
-            <div class="content">Implemented new REST API endpoints for user authentication.
-- Added JWT token validation
-- Created rate limiting middleware
-- Set up API documentation using Swagger
-
-Next steps: Add refresh token rotation.</div>
-            <div class="tags">
-                <span class="tag">backend</span>
-                <span class="tag">api</span>
-            </div>
-        </div>
-
-        <div class="entry" data-tags="frontend ui">
-            <div class="date">2024-02-14</div>
-            <div class="content">Redesigned the dashboard UI components:
-* New card layout for metrics
-* Improved mobile responsiveness
-* Added dark mode support
-
-Created Figma mockups for review.</div>
-            <div class="tags">
-                <span class="tag">frontend</span>
-                <span class="tag">ui</span>
-            </div>
-        </div>
-
-        <div class="entry" data-tags="devops deployment">
-            <div class="date">2024-02-13</div>
-            <div class="content">Set up CI/CD pipeline using GitHub Actions:
-1. Automated testing
-2. Docker image builds
-3. Deployment to staging environment
-
-Found and fixed issue with cached dependencies in Docker layers.</div>
-            <div class="tags">
-                <span class="tag">devops</span>
-                <span class="tag">deployment</span>
-            </div>
-        </div>
+        <!-- Entries will be dynamically inserted here -->
     </div>
 
     <script>
