@@ -24,3 +24,7 @@ This is a test
 15-02-13 Thursday
 This is a also a test
 #but #with #tags
+
+
+15-02-15 Saturday
+We don't need tags to serperate 
