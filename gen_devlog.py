@@ -9,13 +9,13 @@ import os
 # Configuration
 CONFIG = {
     # GitHub repository settings
-    'REPO_OWNER': 'oidz1234',     # Your GitHub username
-    'REPO_NAME': 'devlog',          # Your repository name
+    'REPO_OWNER': 'your-username',     # Your GitHub username
+    'REPO_NAME': 'your-repo',          # Your repository name
     'FILE_PATH': 'devlog.txt',         # Path to devlog.txt in your repo
     
     # Output settings
     'TEMPLATE_PATH': 'template.html',   # Path to template file
-    'OUTPUT_DIR': '/srv/devlog/',            # Directory where the HTML will be generated
+    'OUTPUT_DIR': 'public',            # Directory where the HTML will be generated
     'OUTPUT_FILENAME': 'index.html',    # Name of the generated HTML file
     
     # Optional: Set these via environment variables
@@ -43,8 +43,11 @@ def load_config():
 
 def fetch_from_github(repo_owner, repo_name, file_path='devlog.txt'):
     """Fetch devlog content from public GitHub repository."""
+    # Add timestamp to prevent caching
+    timestamp = int(datetime.now().timestamp())
     url = f'https://api.github.com/repos/{repo_owner}/{repo_name}/contents/{file_path}'
-    response = requests.get(url)
+    response = requests.get(url, params={'timestamp': timestamp}, 
+                          headers={'Cache-Control': 'no-cache'})
     
     if response.status_code != 200:
         raise Exception(f'Failed to fetch file: {response.status_code}')
@@ -64,12 +67,15 @@ def parse_devlog_content(content):
         if not entry.strip():
             continue
             
-        # Extract date (expected format: YYYY-MM-DD)
-        date_match = re.match(r'(\d{4}-\d{2}-\d{2})', entry)
+        # Extract date (format: DD-MM-YY Day)
+        date_match = re.match(r'(\d{2}-\d{2}-\d{2}\s+\w+)', entry)
         if not date_match:
             continue
             
-        date = date_match.group(1)
+        display_date = date_match.group(1)
+        # Convert to sortable format internally (YYYY-MM-DD)
+        day, month, year = display_date.split()[0].split('-')
+        date = f'20{year}-{month}-{day}'  # Assuming 20xx for year
         
         # Extract tags (format: #tag1 #tag2)
         tags = re.findall(r'#(\w+)', entry)
@@ -82,6 +88,7 @@ def parse_devlog_content(content):
         
         entries.append({
             'date': date,
+            'display_date': display_date,
             'content': content,
             'tags': tags
         })
@@ -109,7 +116,7 @@ def generate_html(template_path, entries, tags):
         
         entries_html += f'''
         <div class="entry" data-tags="{' '.join(entry['tags'])}">
-            <div class="date">{entry['date']}</div>
+            <div class="date">{entry['display_date']}</div>
             <div class="content">{entry['content']}</div>
             <div class="tags">{tags_html}</div>
         </div>
