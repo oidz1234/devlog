@@ -60,8 +60,27 @@ def parse_devlog_content(content):
     entries = []
     all_tags = set()
 
-    # Split into entries (assuming entries are separated by three or more newlines)
-    raw_entries = re.split(r'\n{3,}', content.strip())
+    # Split into entries based on date patterns
+    raw_entries = []
+    current_entry = []
+
+    for line in content.split('\n'):
+        # If we find a date pattern, it's a new entry
+        if re.match(r'\d{2}-\d{2}-\d{2}\s+\w+', line):
+            if current_entry:
+                raw_entries.append('\n'.join(current_entry))
+            current_entry = [line]
+        # If we find tags, complete the current entry
+        elif '#' in line and any(word.startswith('#') for word in line.split()):
+            current_entry.append(line)
+            raw_entries.append('\n'.join(current_entry))
+            current_entry = []
+        elif current_entry:  # If we have a current entry, add the line to it
+            current_entry.append(line)
+
+    # Add the last entry if there is one
+    if current_entry:
+        raw_entries.append('\n'.join(current_entry))
 
     for entry in raw_entries:
         if not entry.strip():
@@ -77,14 +96,12 @@ def parse_devlog_content(content):
         day, month, year = display_date.split()[0].split('-')
         date = f'20{year}-{month}-{day}'  # Assuming 20xx for year
 
-        # Extract tags (format: #tag1 #tag2)
-        tags = re.findall(r'#(\w+)', entry)
-        all_tags.update(tags)
+        # Get content after the date line
+        content_start = entry.find('\n', entry.find(display_date))
+        if content_start == -1:
+            continue
 
-        # Get content (everything after the date, excluding tags)
-        content = entry[len(date):].strip()
-        # Remove tags from content
-        content = re.sub(r'#\w+', '', content).strip()
+        content = entry[content_start:].strip()
 
         # Process code blocks (```...```)
         content = re.sub(
@@ -93,6 +110,13 @@ def parse_devlog_content(content):
             content,
             flags=re.DOTALL
         )
+
+        # Extract tags (format: #tag1 #tag2)
+        tags = re.findall(r'#(\w+)', content)
+        all_tags.update(tags)
+
+        # Remove tags from content
+        content = re.sub(r'#\w+', '', content).strip()
 
         entries.append({
             'date': date,
