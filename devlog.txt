@@ -6,6 +6,10 @@ Devlog:
 Monitor Monkey:
 * Added a copy button on the add a host page to copy the install command
 
+Website:
+* Removed the subscribe via email button. It did not work anyway
+* Added a reply by email link
+
 #devlog #monitormonkey
 
 15-02-15 Saturday
