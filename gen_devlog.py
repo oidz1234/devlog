@@ -111,6 +111,21 @@ def parse_devlog_content(content):
             flags=re.DOTALL
         )
 
+        # Process Markdown links [text](url)
+        content = re.sub(
+            r'\[([^\]]+)\]\(([^)]+)\)',
+            lambda m: f'<a href="{m.group(2)}">{m.group(1)}</a>',
+            content
+        )
+
+        # Process bare URLs
+        content = re.sub(
+            r'<(https?://[^>]+)>',
+            lambda m: f'<a href="{m.group(1)}">{m.group(1)}</a>',
+            content
+        )
+
+
         # Extract tags (format: #tag1 #tag2)
         tags = re.findall(r'#(\w+)', content)
         all_tags.update(tags)
