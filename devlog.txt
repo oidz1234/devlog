@@ -1,5 +1,5 @@
 16-02-16 Sunday
-Devlog Changes:
+Devlog:
 * Some padding between the tags and the post 
 * Added Markdown link formatting function along with styling
 
