@@ -1,5 +1,5 @@
 15-02-15 Saturday
-Made this devlog, will write about it on actual blog all the technical stuff
+Made this devlog, will write about it on my actual blog with all the technical stuff
 
 Monitor Monkey:
 * Waiting on payment processor to approve me
