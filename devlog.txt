@@ -3,7 +3,10 @@ Devlog:
 * Some padding between the tags and the post 
 * Added Markdown link formatting function along with styling
 
-#devlog
+Monitor Monkey:
+* Added a copy button on the add a host page to copy the install command
+
+#devlog #monitormonkey
 
 15-02-15 Saturday
 Made this devlog, will write about it on my actual [blog](https://mark.mcnally.je/blog/) with all the technical stuff
