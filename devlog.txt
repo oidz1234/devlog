@@ -1,3 +1,10 @@
+16-02-16 Sunday
+Devlog Changes:
+* Some padding between the tags and the post 
+* Added Markdown link formatting function along with styling
+
+#devlog
+
 15-02-15 Saturday
 Made this devlog, will write about it on my actual [blog](https://mark.mcnally.je/blog/) with all the technical stuff
 
