@@ -232,7 +232,7 @@ def generate_rss_feed(entries, config):
         # Convert pre/code blocks to preserve formatting
         content = re.sub(
             r'<pre><code>(.*?)</code></pre>',
-            lambda m: '\n\n' + m.group(1) + '\n\n',
+            lambda m: '\n\n```\n' + m.group(1) + '\n```\n\n',
             content,
             flags=re.DOTALL
         )
@@ -240,12 +240,15 @@ def generate_rss_feed(entries, config):
         # Remove other HTML tags but preserve their newlines
         content = re.sub(r'<[^>]+>', '', content)
         
-        # Ensure proper spacing around code blocks
-        content = re.sub(r'\n{3,}', '\n\n', content)
+        # Convert newlines to <br/> tags
+        content = content.replace('\n', '<br/>')
         
-        # Create description with CDATA
+        # Clean up multiple breaks
+        content = re.sub(r'(<br/>){3,}', '<br/><br/>', content)
+        
+        # Create description
         item_description = ET.SubElement(item, 'description')
-        item_description.text = f'<![CDATA[{content}]]>'
+        item_description.text = content
         
         # Add publication date
         pub_date = ET.SubElement(item, 'pubDate')
