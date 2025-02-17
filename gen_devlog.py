@@ -226,10 +226,29 @@ def generate_rss_feed(entries, config):
         item_guid = ET.SubElement(item, 'guid')
         item_guid.text = f"{config['SITE_URL']}#{entry['date']}"
         
-        # Convert content to plain text (remove HTML tags)
-        content = re.sub(r'<[^>]+>', '', entry['content'])
+        # Process content: preserve newlines and code blocks
+        content = entry['content']
+        
+        # Convert pre/code blocks to preserve formatting
+        content = re.sub(
+            r'<pre><code>(.*?)</code></pre>',
+            lambda m: '\n\n' + m.group(1) + '\n\n',
+            content,
+            flags=re.DOTALL
+        )
+        
+        # Remove other HTML tags but preserve their newlines
+        content = re.sub(r'<[^>]+>', '', content)
+        
+        # Ensure proper spacing around code blocks
+        content = re.sub(r'\n{3,}', '\n\n', content)
+        
+        # Wrap in CDATA to preserve formatting
         item_description = ET.SubElement(item, 'description')
-        item_description.text = content
+        cdata = minidom.createCDATASection(content)
+        description_elem = minidom.parseString(item_description.tostring()).firstChild
+        description_elem.appendChild(cdata)
+        item_description = ET.fromstring(description_elem.toxml())
         
         # Add publication date
         pub_date = ET.SubElement(item, 'pubDate')
