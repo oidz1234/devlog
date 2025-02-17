@@ -10,6 +10,7 @@ Monitor Monkey:
 * Still waiting on payments :(
 * Added readme to agent with very basic install instructions
 * During autoconfig the agent now ignores snap and fuse based disks/filesystems
+* added new images onto homepage to new padding 
 
 #devlog #website #monitormonkey
 
