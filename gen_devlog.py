@@ -243,12 +243,9 @@ def generate_rss_feed(entries, config):
         # Ensure proper spacing around code blocks
         content = re.sub(r'\n{3,}', '\n\n', content)
         
-        # Wrap in CDATA to preserve formatting
+        # Create description with CDATA
         item_description = ET.SubElement(item, 'description')
-        cdata = minidom.createCDATASection(content)
-        description_elem = minidom.parseString(item_description.tostring()).firstChild
-        description_elem.appendChild(cdata)
-        item_description = ET.fromstring(description_elem.toxml())
+        item_description.text = f'<![CDATA[{content}]]>'
         
         # Add publication date
         pub_date = ET.SubElement(item, 'pubDate')
