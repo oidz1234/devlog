@@ -16,9 +16,9 @@
 
         h1 {
             font-size: 32px;
-            border-bottom: 4px solid #000;
+            position: relative;
             padding-bottom: 10px;
-            margin-bottom: 40px;
+            
         }
 
         .entry {
@@ -106,8 +106,21 @@
     </style>
 </head>
 <body>
-    <h1><a href="https://mark.mcnally.je">MARKS</a> DEVLOG <a href="feed.xml" style="font-size: 12px; vertical-align: super; margin-left: 5px;">RSS</a></h1>
-    <div id="tag-filter">
+        <header>
+            <div class="header-content" style="max-width: 800px; margin: 40px auto 0; padding: 0 20px; position: relative;">
+                <h1 style="margin: 0 0 4px 0; display: inline-block;">
+                    <a href="https://mark.mcnally.je">MARKS</a> DEVLOG
+                    <a href="feed.xml" style="font-size: 12px; vertical-align: super; margin-left: 5px;">RSS</a>
+                </h1>
+                <div class="sparkline-container" style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%);" title="Contributions this year">
+                    <!-- Sparkline will be inserted here -->
+                </div>
+            </div>
+            <div class="header-border" style="height: 4px; background: #000; margin-top: 0; width: 100%;"></div>
+        </header>
+    
+
+    <div id="tag-filter" style="margin-top: 40px;">
         <button onclick="filterByTag('all')" class="active">ALL</button>
         <!-- Tags will be dynamically inserted here -->
     </div>

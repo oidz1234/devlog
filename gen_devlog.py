@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import re
 import requests
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 import base64
 import os
@@ -60,17 +60,74 @@ def load_config():
 
 def fetch_from_github(repo_owner, repo_name, file_path='devlog.txt'):
     """Fetch devlog content from public GitHub repository."""
-    # Add timestamp to prevent caching
     timestamp = int(datetime.now().timestamp())
     url = f'https://api.github.com/repos/{repo_owner}/{repo_name}/contents/{file_path}'
-    response = requests.get(url, params={'timestamp': timestamp},
-                          headers={'Cache-Control': 'no-cache'})
+    response = requests.get(
+        url,
+        params={'timestamp': timestamp},
+        headers={'Cache-Control': 'no-cache'}
+    )
 
     if response.status_code != 200:
         raise Exception(f'Failed to fetch file: {response.status_code}')
 
     content = response.json()['content']
     return base64.b64decode(content).decode('utf-8')
+
+def generate_sparkline(entries, width=100, height=30):
+    """Generate a sparkline SVG from devlog entries."""
+    # Count contributions per day (count '*' occurrences)
+    contributions = {}
+    for entry in entries:
+        date = datetime.strptime(entry['date'], '%Y-%m-%d')
+        content = entry['content']
+        count = content.count('*')
+        contributions[date] = count
+    
+    # Get the last 30 days of data
+    end_date = max(contributions.keys())
+    start_date = end_date - timedelta(days=30)
+    
+    # Collect data points for the last 30 days
+    data_points = []
+    current_date = start_date
+    while current_date <= end_date:
+        data_points.append(contributions.get(current_date, 0))
+        current_date += timedelta(days=1)
+    
+    # Calculate scaling factors
+    max_value = max(data_points) if data_points else 1
+    x_scale = width / (len(data_points) - 1)
+    y_scale = height / max_value if max_value > 0 else 1
+    
+    # Generate path data
+    path_data = []
+    for i, value in enumerate(data_points):
+        x = i * x_scale
+        y = height - (value * y_scale)  # Invert Y axis
+        command = 'M' if i == 0 else 'L'
+        path_data.append(f'{command}{x:.1f},{y:.1f}')
+    
+    # Create SVG
+    svg = [
+        f'<svg width="{width}" height="{height}" class="sparkline" viewBox="0 0 {width} {height}">'
+    ]
+    
+    # Add the sparkline path
+    svg.append(
+        f'<path d="{" ".join(path_data)}" fill="none" stroke="#3b82f6" stroke-width="1.5"/>'
+    )
+    
+    # Add the latest value as a dot
+    if data_points:
+        last_x = (len(data_points) - 1) * x_scale
+        last_y = height - (data_points[-1] * y_scale)
+        svg.append(
+            f'<circle cx="{last_x}" cy="{last_y}" r="2" fill="#3b82f6"/>'
+        )
+    
+    svg.append('</svg>')
+    return '\n'.join(svg)
 
 def parse_devlog_content(content):
     """Parse the devlog content and return structured data."""
@@ -185,9 +242,13 @@ def generate_html(template_path, entries, tags):
         </div>
         '''
 
-    # Insert dynamic content into template
+    # Generate sparkline
+    sparkline = generate_sparkline(entries, width=150, height=30)
+    
+    # Replace placeholders in template
     html = template.replace('<!-- Tags will be dynamically inserted here -->', tag_buttons)
     html = html.replace('<!-- Entries will be dynamically inserted here -->', entries_html)
+    html = html.replace('<!-- Sparkline will be inserted here -->', sparkline)
 
     return html
 
@@ -226,7 +287,6 @@ def generate_rss_feed(entries, config):
         item_guid = ET.SubElement(item, 'guid')
         item_guid.text = f"{config['SITE_URL']}#{entry['date']}"
         
-        # Process content: preserve newlines and code blocks
         content = entry['content']
         
         # Convert pre/code blocks to preserve formatting
