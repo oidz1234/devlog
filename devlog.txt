@@ -3,7 +3,11 @@ Devlog:
 * Rss :)
 
 Website:
-* Added a pub date to my blogs rss feed. Suprised to not have had this already to be honest.
+* Added a pub date to my blogs rss feed. Surprised to not have had this already to be honest.
+
+Monitor Monkey:
+* Still waiting on payments :(
+* Added readme to agent with very basic install instructions
 
 #devlog #website
 
