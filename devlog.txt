@@ -1,3 +1,7 @@
+17-02-17 Monday
+Devlog:
+* Rss :)
+
 16-02-16 Sunday
 Devlog:
 * Some padding between the tags and the post 
