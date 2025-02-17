@@ -1,6 +1,7 @@
 17-02-25 Monday
 Devlog:
 * Rss :)
+* Added sparkline chart, it graphs from the start of this year to the end which is why it is very empty atm
 
 Website:
 * Added a pub date to my blogs rss feed. Surprised to not have had this already to be honest.
