@@ -9,7 +9,7 @@ Monitor Monkey:
 * Still waiting on payments :(
 * Added readme to agent with very basic install instructions
 
-#devlog #website
+#devlog #website #monitormonkey
 
 
 16-02-25 Sunday
