@@ -138,14 +138,34 @@ def parse_devlog_content(content):
     raw_entries = []
     current_entry = []
 
-    for line in content.split('\n'):
+    # First, pre-process code blocks to protect their content
+    # We'll use a unique placeholder that won't appear in normal text
+    code_blocks = {}
+    code_block_counter = 0
+
+    def replace_code_block(match):
+        nonlocal code_block_counter
+        placeholder = f"__CODE_BLOCK_{code_block_counter}__"
+        code_blocks[placeholder] = match.group(0)
+        code_block_counter += 1
+        return placeholder
+
+    processed_content = re.sub(
+        r'```.*?```',
+        replace_code_block,
+        content,
+        flags=re.DOTALL
+    )
+
+    # Now process the entries with protected code blocks
+    for line in processed_content.split('\n'):
         # If we find a date pattern, it's a new entry
         if re.match(r'\d{2}-\d{2}-\d{2}\s+\w+', line):
             if current_entry:
                 raw_entries.append('\n'.join(current_entry))
             current_entry = [line]
-        # If we find tags, complete the current entry
-        elif '#' in line and any(word.startswith('#') for word in line.split()):
+        # Only treat # as a tag marker if it's at the start of a line or after a space
+        elif (line.strip().startswith('#') or ' #' in line) and not any(placeholder in line for placeholder in code_blocks):
             current_entry.append(line)
             raw_entries.append('\n'.join(current_entry))
             current_entry = []
@@ -177,7 +197,12 @@ def parse_devlog_content(content):
 
         content = entry[content_start:].strip()
 
-        # Process code blocks (```...```)
+        # Restore code blocks
+        for placeholder, code_block in code_blocks.items():
+            if placeholder in content:
+                content = content.replace(placeholder, code_block)
+
+        # Process code blocks for HTML
         content = re.sub(
             r'```(.*?)```',
             lambda m: f'<pre><code>{m.group(1)}</code></pre>',
@@ -200,11 +225,11 @@ def parse_devlog_content(content):
         )
 
         # Extract tags (format: #tag1 #tag2)
-        tags = re.findall(r'#(\w+)', content)
+        tags = re.findall(r'(?:^|\s)#(\w+)', content)
         all_tags.update(tags)
 
         # Remove tags from content
-        content = re.sub(r'#\w+', '', content).strip()
+        content = re.sub(r'(?:^|\s)#\w+', '', content).strip()
 
         entries.append({
             'date': date,
