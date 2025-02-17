@@ -2,6 +2,17 @@
 Devlog:
 * Rss :)
 * Added sparkline chart, it graphs from the start of this year to the end which is why it is very empty atm
+* I'm now using the below function to edit my dev log, prev alias was not going back to orignal working dir
+
+```
+edl() {
+    local OLD_DIR="$PWD"  # Save the current directory
+    cd ~/Documents/dev/devlog/ || return
+    vim devlog.txt
+    git commit -am "Updated devlog" && git push
+    cd "$OLD_DIR" || return  # Always return to the original directory
+}
+```
 
 Website:
 * Added a pub date to my blogs rss feed. Surprised to not have had this already to be honest.
