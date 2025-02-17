@@ -5,7 +5,6 @@ Devlog:
 
 Website:
 * Added a pub date to my blogs rss feed. Surprised to not have had this already to be honest.
-* test
 
 Monitor Monkey:
 * Still waiting on payments :(
