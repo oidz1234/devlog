@@ -1,8 +1,8 @@
-17-02-2025 Monday
+17-02-25 Monday
 Devlog:
 * Rss :)
 
-16-02-2025 Sunday
+16-02-25 Sunday
 Devlog:
 * Some padding between the tags and the post 
 * Added Markdown link formatting function along with styling
@@ -18,7 +18,7 @@ Website:
 
 #devlog #monitormonkey #website
 
-15-02-2025 Saturday
+15-02-25 Saturday
 Made this devlog, will write about it on my actual [blog](https://mark.mcnally.je/blog/) with all the technical stuff
 
 Monitor Monkey:
@@ -28,7 +28,7 @@ Monitor Monkey:
 
 #devlog #monitormonkey
 
-15-02-2025 Friday
+15-02-25 Friday
 First line needs to be here
 
 Second can be anwhere
