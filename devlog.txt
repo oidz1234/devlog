@@ -13,6 +13,7 @@ edl() {
     cd "$OLD_DIR" || return  # Always return to the original directory
 }
 ```
+* Fixed issue with the way tags were being handled
 
 Website:
 * Added a pub date to my blogs rss feed. Surprised to not have had this already to be honest.
