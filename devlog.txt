@@ -2,6 +2,10 @@
 Devlog:
 * Rss :)
 
+Website:
+* Added a pub date to my blogs rss feed. Suprised to not have had this already to be honest.
+
+
 16-02-25 Sunday
 Devlog:
 * Some padding between the tags and the post 
