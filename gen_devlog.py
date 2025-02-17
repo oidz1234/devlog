@@ -5,40 +5,57 @@ from datetime import datetime
 from pathlib import Path
 import base64
 import os
+import xml.etree.ElementTree as ET
+from xml.dom import minidom
 
 # Configuration
 CONFIG = {
     # GitHub repository settings
-    'REPO_OWNER': 'oidz1234',     # Your GitHub username
-    'REPO_NAME': 'devlog',          # Your repository name
-    'FILE_PATH': 'devlog.txt',         # Path to devlog.txt in your repo
+    'REPO_OWNER': 'oidz1234',
+    'REPO_NAME': 'devlog',
+    'FILE_PATH': 'devlog.txt',
     
     # Output settings
-    'TEMPLATE_PATH': 'template.html',   # Path to template file
-    'OUTPUT_DIR': '/srv/devlog/',            # Directory where the HTML will be generated
-    'OUTPUT_FILENAME': 'index.html',    # Name of the generated HTML file
+    'TEMPLATE_PATH': 'template.html',
+    'OUTPUT_DIR': '/srv/devlog/',
+    'OUTPUT_FILENAME': 'index.html',
     
-    # Optional: Set these via environment variables
+    # Site settings
+    'SITE_URL': 'https://mark.mcnally.je/devlog/',
+    'SITE_TITLE': 'Marks Devlog',
+    'SITE_AUTHOR': 'Mark McNally',
+    'SITE_DESCRIPTION': 'Development Log',
+    
+    # Environment variable names
     'REPO_OWNER_ENV': 'DEVLOG_REPO_OWNER',
     'REPO_NAME_ENV': 'DEVLOG_REPO_NAME',
     'OUTPUT_DIR_ENV': 'DEVLOG_OUTPUT_DIR',
-    'OUTPUT_FILENAME_ENV': 'DEVLOG_OUTPUT_FILENAME'
+    'OUTPUT_FILENAME_ENV': 'DEVLOG_OUTPUT_FILENAME',
+    'SITE_URL_ENV': 'DEVLOG_SITE_URL',
+    'SITE_TITLE_ENV': 'DEVLOG_SITE_TITLE',
+    'SITE_AUTHOR_ENV': 'DEVLOG_SITE_AUTHOR',
+    'SITE_DESCRIPTION_ENV': 'DEVLOG_SITE_DESCRIPTION'
 }
 
 def load_config():
     """Load configuration from environment variables if available."""
     config = CONFIG.copy()
-
-    # Override with environment variables if they exist
-    if os.getenv(CONFIG['REPO_OWNER_ENV']):
-        config['REPO_OWNER'] = os.getenv(CONFIG['REPO_OWNER_ENV'])
-    if os.getenv(CONFIG['REPO_NAME_ENV']):
-        config['REPO_NAME'] = os.getenv(CONFIG['REPO_NAME_ENV'])
-    if os.getenv(CONFIG['OUTPUT_DIR_ENV']):
-        config['OUTPUT_DIR'] = os.getenv(CONFIG['OUTPUT_DIR_ENV'])
-    if os.getenv(CONFIG['OUTPUT_FILENAME_ENV']):
-        config['OUTPUT_FILENAME'] = os.getenv(CONFIG['OUTPUT_FILENAME_ENV'])
-
+    
+    env_mappings = {
+        'REPO_OWNER_ENV': 'REPO_OWNER',
+        'REPO_NAME_ENV': 'REPO_NAME',
+        'OUTPUT_DIR_ENV': 'OUTPUT_DIR',
+        'OUTPUT_FILENAME_ENV': 'OUTPUT_FILENAME',
+        'SITE_URL_ENV': 'SITE_URL',
+        'SITE_TITLE_ENV': 'SITE_TITLE',
+        'SITE_AUTHOR_ENV': 'SITE_AUTHOR',
+        'SITE_DESCRIPTION_ENV': 'SITE_DESCRIPTION'
+    }
+    
+    for env_key, config_key in env_mappings.items():
+        if os.getenv(config[env_key]):
+            config[config_key] = os.getenv(config[env_key])
+    
     return config
 
 def fetch_from_github(repo_owner, repo_name, file_path='devlog.txt'):
@@ -125,7 +142,6 @@ def parse_devlog_content(content):
             content
         )
 
-
         # Extract tags (format: #tag1 #tag2)
         tags = re.findall(r'#(\w+)', content)
         all_tags.update(tags)
@@ -175,6 +191,68 @@ def generate_html(template_path, entries, tags):
 
     return html
 
+def generate_rss_feed(entries, config):
+    """Generate RSS feed without external dependencies."""
+    rss = ET.Element('rss', version='2.0')
+    channel = ET.SubElement(rss, 'channel')
+    
+    # Add required channel elements
+    title = ET.SubElement(channel, 'title')
+    title.text = config['SITE_TITLE']
+    
+    link = ET.SubElement(channel, 'link')
+    link.text = config['SITE_URL']
+    
+    description = ET.SubElement(channel, 'description')
+    description.text = config['SITE_DESCRIPTION']
+    
+    # Add optional channel elements
+    language = ET.SubElement(channel, 'language')
+    language.text = 'en-us'
+    
+    generator = ET.SubElement(channel, 'generator')
+    generator.text = 'Python RSS Generator'
+    
+    # Add items
+    for entry in sorted(entries, key=lambda x: x['date'], reverse=True):
+        item = ET.SubElement(channel, 'item')
+        
+        item_title = ET.SubElement(item, 'title')
+        item_title.text = entry['display_date']
+        
+        item_link = ET.SubElement(item, 'link')
+        item_link.text = f"{config['SITE_URL']}#{entry['date']}"
+        
+        item_guid = ET.SubElement(item, 'guid')
+        item_guid.text = f"{config['SITE_URL']}#{entry['date']}"
+        
+        # Convert content to plain text (remove HTML tags)
+        content = re.sub(r'<[^>]+>', '', entry['content'])
+        item_description = ET.SubElement(item, 'description')
+        item_description.text = content
+        
+        # Add publication date
+        pub_date = ET.SubElement(item, 'pubDate')
+        date_obj = datetime.strptime(entry['date'], '%Y-%m-%d')
+        pub_date.text = date_obj.strftime('%a, %d %b %Y 00:00:00 GMT')
+        
+        # Add author
+        author = ET.SubElement(item, 'author')
+        author.text = config['SITE_AUTHOR']
+        
+        # Add categories (tags)
+        for tag in entry['tags']:
+            category = ET.SubElement(item, 'category')
+            category.text = tag
+    
+    # Convert to string with pretty printing
+    xml_str = minidom.parseString(ET.tostring(rss)).toprettyxml(indent="  ")
+    
+    # Save the feed
+    output_dir = Path(config['OUTPUT_DIR'])
+    with open(output_dir / 'feed.xml', 'w', encoding='utf-8') as f:
+        f.write(xml_str)
+
 def main():
     # Load configuration
     config = load_config()
@@ -204,8 +282,12 @@ def main():
         with open(output_path, 'w') as f:
             f.write(html)
 
+        # Generate RSS feed
+        generate_rss_feed(entries, config)
+
         print(f"Successfully generated devlog at {output_path}")
         print(f"Stats: {len(entries)} entries, {len(tags)} tags")
+        print(f"RSS feed generated at {output_dir}/feed.xml")
 
     except Exception as e:
         print(f"Error generating devlog: {str(e)}")
