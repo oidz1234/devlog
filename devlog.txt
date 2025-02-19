@@ -1,5 +1,6 @@
 19-02-25 Wednesday
 Monitor Monkey:
+* STILL NO PAYMENT PROCESSOR AHHHEEE
 * New configure api that configures the agent with custom config before it sends its first update 
 * Made settings.py smarter + easier to deploy
 
