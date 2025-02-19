@@ -3,6 +3,11 @@ Infra:
 * Set up miniflux to be my rss reader
 * Set up wallabag to save things to read later
 
+Secret Project:
+* Flask backend and react frontend built
+* Working with test data
+* Exploring new ai workflows
+
 #infrastructure
 
 17-02-25 Monday
