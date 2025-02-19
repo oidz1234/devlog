@@ -11,7 +11,10 @@ Secret Project:
 Monitor Monkey
 * Chased payment processor
 
-#infrastructure #monitormonkey
+Website
+* fixed the broken tag system that caused [this](https://mark.mcnally.je/blog/post/My%20blog%20traps%20spiders) problem
+
+#infrastructure #monitormonkey #website
 
 17-02-25 Monday
 Devlog:
