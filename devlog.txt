@@ -1,3 +1,16 @@
+20-02-25 Thursday
+
+Discord Replacement:
+* Started work on a very simple discord replacement
+* Client and server talk via web sockets
+* Simple auth
+* Simple chat
+
+Monitor Monkey:
+* Still waiting on payment processor, very much blocked :( 
+
+#monitormonkey 
+
 19-02-25 Wednesday
 Monitor Monkey:
 * STILL NO PAYMENT PROCESSOR AHHHEEE
