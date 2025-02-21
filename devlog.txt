@@ -10,6 +10,7 @@ Chat application:
 
 Monitor Monkey:
 * Still waiting on payment processor, very much blocked :( 
+* Started working on indivdual dashboards per host to view historic metrics
 
 #monitormonkey #randomprojects
 
