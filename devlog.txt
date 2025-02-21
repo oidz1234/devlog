@@ -2,6 +2,7 @@
 Monitor Monkey:
 * Still no payments :(
 * Added get_hostname method
+* Added live per host auto updating metrics (very cool)
 
 #monitormonkey
 
