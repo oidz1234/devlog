@@ -1,3 +1,10 @@
+21-02-25 Friday
+Monitor Monkey:
+* Still no payments :(
+* Added get_hostname method
+
+#monitormonkey
+
 20-02-25 Thursday
 
 Chat application:
