@@ -1,6 +1,7 @@
 23-02-25 Sunday
 Website
 * Added log file analytics [here](https://mark.mcnally.je/analytics/) [source](https://github.com/oidz1234/markalytics)
+* Tested graphing on prod, found some bugs to fix in the week
 
 #website
 
