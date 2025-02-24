@@ -8,7 +8,10 @@ Monitor Monkey:
 * Updated home page with new charting feature
 * Alert emails now show last known values of host
 
-#monitormonkey
+Website:
+* Added my latest status from [status.cafe](https://status.cafe) to my homepage
+
+#monitormonkey #website
 
 23-02-25 Sunday
 Website
