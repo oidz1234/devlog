@@ -2,6 +2,7 @@
 Monitor Monkey:
 * Pre load charts so we don't have to wait for 1 refresh
 * Aggregate charts if time > 1 hour so we don't lag out the browser
+* Reset zoom button on charts in better location
 
 #monitormonkey
 
