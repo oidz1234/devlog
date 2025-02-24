@@ -1,3 +1,10 @@
+24-02-25 Monday
+Monitor Monkey:
+* Pre load charts so we don't have to wait for 1 refresh
+* Aggregate charts if time > 1 hour so we don't lag out the browser
+
+#monitormonkey
+
 23-02-25 Sunday
 Website
 * Added log file analytics [here](https://mark.mcnally.je/analytics/) [source](https://github.com/oidz1234/markalytics)
