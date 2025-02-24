@@ -5,6 +5,7 @@ Monitor Monkey:
 * Reset zoom button on charts in better location
 * Added link to graphs from main dashboard
 * Generate a chart for each disk configured, not just '/'
+* Updated home page with new charting feature
 
 #monitormonkey
 
