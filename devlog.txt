@@ -6,6 +6,7 @@ Monitor Monkey:
 * Added link to graphs from main dashboard
 * Generate a chart for each disk configured, not just '/'
 * Updated home page with new charting feature
+* Alert emails now show last known values of host
 
 #monitormonkey
 
