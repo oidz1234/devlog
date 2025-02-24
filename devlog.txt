@@ -5,7 +5,7 @@ Website
 Monitor Monkey:
 * Tested graphing on prod, found some bugs to fix in the week
 
-#website #monitormonkey
+ #website #monitormonkey
 
 21-02-25 Friday
 Monitor Monkey:
