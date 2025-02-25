@@ -7,6 +7,7 @@ Monitor Monkey:
 * Generate a chart for each disk configured, not just '/'
 * Updated home page with new charting feature
 * Alert emails now show last known values of host
+* Rate limiting for hosts, once every 5 seconds only
 
 Website:
 * Added my latest status from [status.cafe](https://status.cafe) to my homepage
