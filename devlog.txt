@@ -1,5 +1,9 @@
 26-02-25 Wednesday
 Monitor Monkey:
+* Added load averege into graphs
+
+25-02-25 Tuesday
+Monitor Monkey:
 * More testing 
 
 #monitormonkey
