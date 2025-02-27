@@ -3,7 +3,10 @@ Monitor Monkey:
 * Added load averege into graphs
 * Agent now waits for a full $interval before sending data on first run to make sure we have legit stats
 
-#monitormonkey
+Website:
+* Working on a mouth breathing tracker tool, should be out tommorow
+
+#monitormonkey #website #randomprojects
 
 25-02-25 Tuesday
 Monitor Monkey:
