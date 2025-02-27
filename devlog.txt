@@ -1,3 +1,9 @@
+27-02-25 Thursday
+Monitor Monkey:
+* Home page video demo
+
+#monitormonkey
+
 26-02-25 Wednesday
 Monitor Monkey:
 * Added load averege into graphs
