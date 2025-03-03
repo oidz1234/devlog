@@ -2,6 +2,7 @@
 Monitor Monkey:
 * ID Verifed, finally
 * New prod host numbers added to models
+* Test links replaced with prod ones in frontend
 
 #MonitorMonkey
 
