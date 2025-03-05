@@ -1,3 +1,9 @@
+05-03-25 Wednesday
+Monitor Monkey:
+* Alerting is now on by default
+
+#monitormonkey
+
 03-03-25 Monday
 Monitor Monkey:
 * Correctly links for customer to manage payments
