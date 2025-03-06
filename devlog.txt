@@ -2,6 +2,7 @@
 Monitor Monkey:
 * Alerting is now on by default
 * Removed menus in sign up/sign in pages
+* Made admin interface show releveant data on host page
 
 #monitormonkey
 
