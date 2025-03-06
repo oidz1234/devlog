@@ -27,7 +27,7 @@ Monitor Monkey:
 * New prod host numbers added to models
 * Test links replaced with prod ones in frontend
 
-#monitorMonkey
+#monitormonkey
 
 28-02-25 Friday
 Snipthat:
