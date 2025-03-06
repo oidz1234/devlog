@@ -1,6 +1,7 @@
 06-03-25 Thursday
 Monitor Monkey:
 * More alerting for disk useage and services
+* Updated alerting models to use UniqueConstraint not unique_together
 
 #monitormonkey
 05-03-25 Wednesday
