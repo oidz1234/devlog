@@ -4,6 +4,7 @@ Monitor Monkey:
 * Updated alerting models to use UniqueConstraint not unique_together
 
 #monitormonkey
+
 05-03-25 Wednesday
 Monitor Monkey:
 * Alerting is now on by default
