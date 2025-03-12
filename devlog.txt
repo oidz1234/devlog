@@ -1,3 +1,9 @@
+12-03-25 Wednesday
+Monitor Monkey:
+* Admin page now shows more info about host
+
+#monitormonkey
+
 06-03-25 Thursday
 Monitor Monkey:
 * More alerting for disk useage and services
