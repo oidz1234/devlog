@@ -2,6 +2,7 @@
 Monitor Monkey:
 * Admin page now shows more info about host
 * Updated homepage with a demo video
+* Agents defaults match servers now
 
 #monitormonkey
 
