@@ -1,6 +1,7 @@
 12-03-25 Wednesday
 Monitor Monkey:
 * Admin page now shows more info about host
+* Updated homepage with a demo video
 
 #monitormonkey
 
