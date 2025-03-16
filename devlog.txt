@@ -1,7 +1,10 @@
 16-03-25 Sunday
 Monitor Monkey:
-I've been working on marketing this week, so no real stuff that's appropirate to go here
+
+I've been working on marketing this week, so no real stuff that's appropriate to go here
+
 * Planned new features
+* Added upload/download totals for specified timeframe
 
 #Monitor monkey
 
