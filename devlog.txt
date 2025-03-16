@@ -1,3 +1,10 @@
+16-03-25 Sunday
+Monitor Monkey:
+I've been working on marketing this week, so no real stuff that's appropirate to go here
+* Planned new features
+
+#Monitor monkey
+
 15-03-25 Saturday
 Wizard cut:
 * New open source video editing software [repo](https://github.com/oidz1234/wizard-cut)
