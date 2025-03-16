@@ -6,6 +6,7 @@ I've been working on marketing this week, so no real stuff that's appropriate to
 * Planned new features
 * Added upload/download totals for specified timeframe
 * These now load on first run, not after 5 seconds
+* Email on the homepage is now hello@ not admin@ much nicer :)
 
 #Monitor monkey
 
