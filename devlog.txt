@@ -8,6 +8,9 @@ I've been working on marketing this week, so no real stuff that's appropriate to
 * These now load on first run, not after 5 seconds
 * Email on the homepage is now hello@ not admin@ much nicer :)
 
+Wizard Cut:
+* Making this into a tui [repo](https://github.com/oidz1234/wizard-cut-tui)
+
 #Monitor monkey
 
 15-03-25 Saturday
