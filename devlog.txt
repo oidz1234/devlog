@@ -11,7 +11,7 @@ I've been working on marketing this week, so no real stuff that's appropriate to
 Wizard Cut:
 * Making this into a tui [repo](https://github.com/oidz1234/wizard-cut-tui)
 
-#Monitor monkey
+#monitormonkey #randomprojects
 
 15-03-25 Saturday
 Wizard cut:
