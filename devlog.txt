@@ -1,3 +1,9 @@
+19-03-25 Wednesday
+Monitor Monkey:
+* Agent now excludes loopback from network calc
+
+#monitormonkey
+
 16-03-25 Sunday
 Monitor Monkey:
 
