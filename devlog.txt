@@ -2,6 +2,7 @@
 Monitor Monkey:
 * Agent now excludes loopback from network calc
 * Added field for current most up to date agent version, configured in admin
+* Now detect if agent is out of date on frontend
 
 #monitormonkey
 
