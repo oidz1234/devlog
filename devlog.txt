@@ -5,7 +5,9 @@ Monitor Monkey:
 * Now detect if agent is out of date on frontend
 * Agent now displayes it's --status and --version
 * Created a script to upgrade the agent 
-* Created a script to upgrade an old agent that does not support --version
+* Created a script to upgrade an old agent that does not support --version 
+* This now displays on the frontend, a little ⚠ that you can click on to take you to the update page that contains the instructions for updating
+
 
 #monitormonkey
 
