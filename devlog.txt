@@ -1,3 +1,9 @@
+20-03-25 Thursday
+Monitor Monkey:
+* Social images added for things like twitter in meta tags
+
+#monitormonkey
+
 19-03-25 Wednesday
 Monitor Monkey:
 * Agent now excludes loopback from network calc
