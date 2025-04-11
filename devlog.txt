@@ -9,6 +9,7 @@ Monitor Monkey:
 * Tried to add update with twitter button but oauth library I'm using is not behaving, needa  new one...
 * Temperature graphing, all metrics on 1 graph like load average is
 * Fix issue with temp graphs stopping disks loading if we have no temp (like on a VPS)
+* Fix upgrade script not correctly detecting a running agent
 
 #monitormonkey
 
