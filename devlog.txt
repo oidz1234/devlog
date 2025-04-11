@@ -6,6 +6,7 @@ Monitor Monkey:
 * Agent ARM version
 * ARM now detected in deploy script
 * Tested on raspberry pi
+* Tried to add update with twitter button but oauth library I'm using is not behaving, needa  new one...
 
 #monitormonkey
 
