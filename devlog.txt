@@ -10,6 +10,7 @@ Monitor Monkey:
 * Temperature graphing, all metrics on 1 graph like load average is
 * Fix issue with temp graphs stopping disks loading if we have no temp (like on a VPS)
 * Fix upgrade script not correctly detecting a running agent
+* Upgrade script now supports ARM agent
 
 #monitormonkey
 
