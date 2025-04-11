@@ -4,6 +4,8 @@ Monitor Monkey:
 * Agent better restart and handling of errors
 * API better exception handling
 * Agent ARM version
+* ARM now detected in deploy script
+* Tested on raspberry pi
 
 #monitormonkey
 
