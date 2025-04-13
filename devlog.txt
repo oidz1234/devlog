@@ -3,6 +3,7 @@ Monitor Monkey:
 * Tagging feature added
 * Sorted by tag in dashboard added
 * Dash now has a lil banner at the bottom that shows up when we are filtering that allows us to remove filters
+* Now keep alert history
 
 #monitormonkey
 
