@@ -1,3 +1,9 @@
+14-04-25 Monday
+Monitor Monkey:
+* Alert history page, very pretty :)
+
+#monitormonkey
+
 12-04-25 Saturday
 Monitor Monkey:
 * Tagging feature added
