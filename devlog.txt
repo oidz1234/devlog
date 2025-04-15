@@ -1,3 +1,9 @@
+15-04-25 Tuesday
+Monitor Monkey:
+* Added count of current unacked / unresolved alerts in the header bar thing
+
+#monitormonkey
+
 14-04-25 Monday
 Monitor Monkey:
 * Alert history page, very pretty :)
