@@ -1,6 +1,9 @@
 15-04-25 Tuesday
 Monitor Monkey:
 * Added count of current unacked / unresolved alerts in the header bar thing
+* Alert page configuration of types of alerts
+* Made alerts page nicer
+* Webhook alerting
 
 #monitormonkey
 
