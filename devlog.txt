@@ -4,6 +4,7 @@ Monitor Monkey:
 * Alert page configuration of types of alerts
 * Made alerts page nicer
 * Webhook alerting
+* Ack alert dialogue now appears at start of page instead of end
 
 #monitormonkey
 
