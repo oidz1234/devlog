@@ -6,6 +6,8 @@ Monitor Monkey:
 * View all features button in home page
 * optimised a query that was causing dashboard to not load
 * Optimised how we check online hosts
+* Webhook alerts now have an X-Title header for applications like ntfy.sh
+* Webhook titles now have less metadata, this metadata is in the body now
 
 #monitormonkey
 
