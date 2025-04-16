@@ -2,6 +2,7 @@
 Monitor Monkey:
 * Now shows online hosts first on dash
 * Refactored a lot of helper functions
+* Added a [features page](https://monitormonkey.io/features/)
 
 #monitormonkey
 
