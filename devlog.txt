@@ -4,6 +4,7 @@ Monitor Monkey:
 * Refactored a lot of helper functions
 * Added a [features page](https://monitormonkey.io/features/)
 * View all features button in home page
+* Massivly optomised a query that was causing dashboard to not load
 
 #monitormonkey
 
