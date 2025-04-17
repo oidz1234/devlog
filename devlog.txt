@@ -3,6 +3,7 @@ Monitor Monkey:
 * Added 5/30 min graphing
 * Graphing buttons are now in a drop down
 * made host dashboard actually a host dashboard and not just graphs
+* Added models for upcoming "security events"
 
 #monitormonkey
 
