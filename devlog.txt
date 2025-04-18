@@ -2,6 +2,7 @@
 Monitor Monkey:
 * Security event models are now just for all events, an event being a hourly/daily summary of something
 * Chagned rate limiting to be per min to prevent burst requests at startup getting blocked
+* Added agnet support for events. We get open ports for now and send once a day and at agent startup
 
 #monitormonkey
 
