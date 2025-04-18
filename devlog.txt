@@ -1,3 +1,9 @@
+18-04-25 Friday
+Monitor Monkey:
+* Security event models are now just for all events, an event being a hourly/daily summary of something
+
+#monitormonkey
+
 17-04-25 Thursday
 Monitor Monkey:
 * Added 5/30 min graphing
