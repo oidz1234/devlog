@@ -2,6 +2,7 @@
 Monitor Monkey:
 * Events now combines the old packeges + sec evnets on host dashboard
 * Added events as sub heading with Open Ports support for now
+* Agent support for top 10 CPU/RAM processes 
 
 #monitormonkey
 
