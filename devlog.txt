@@ -1,3 +1,10 @@
+19-04-25 Saturday
+Monitor Monkey:
+* Events now combines the old packeges + sec evnets on host dashboard
+* Added events as sub heading with Open Ports support for now
+
+#monitormonkey
+
 18-04-25 Friday
 Monitor Monkey:
 * Security event models are now just for all events, an event being a hourly/daily summary of something
