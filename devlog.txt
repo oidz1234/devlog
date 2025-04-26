@@ -1,3 +1,9 @@
+26-04-25 Saturday
+WizardCut:
+* Added zoom functionality 
+
+#wizardcut
+
 19-04-25 Saturday
 Monitor Monkey:
 * Events now combines the old packeges + sec evnets on host dashboard
