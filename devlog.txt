@@ -4,6 +4,7 @@ WizardCut:
 
 Monitor Monkey:
 * Optomising dashboards
+* Database indexing
 
 
 #wizardcut #monitormonkey
