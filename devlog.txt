@@ -2,7 +2,11 @@
 WizardCut:
 * Added zoom functionality 
 
-#wizardcut
+Monitor Monkey:
+* Optomising dashboards
+
+
+#wizardcut #monitormonkey
 
 19-04-25 Saturday
 Monitor Monkey:
