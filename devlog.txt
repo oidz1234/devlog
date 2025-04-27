@@ -1,9 +1,16 @@
+27-04-25 Sunday
+WizardCut:
+* Preview functionality
+* modal editor 
+
+#wizardcut
+ 
 26-04-25 Saturday
 WizardCut:
 * Added zoom functionality 
 
 Monitor Monkey:
-* Optomising dashboards
+* Optimising dashboards
 * Database indexing
 
 #wizardcut #monitormonkey
