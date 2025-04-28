@@ -2,6 +2,7 @@
 WizardCut:
 * Preview functionality
 * modal editor 
+* Hotkey based zooming
 
 #wizardcut
  
