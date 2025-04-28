@@ -4,6 +4,7 @@ WizardCut:
 * modal editor 
 * Hotkey based zooming
 * Auto preview no auto switching
+* Multitude of bug fixes
 
 #wizardcut
  
