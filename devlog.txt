@@ -1,3 +1,9 @@
+01-05-25 Thursday
+MonitorMonkey
+* Custom event support 
+
+#monitormonkey
+
 27-04-25 Sunday
 WizardCut:
 * Preview functionality
