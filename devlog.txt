@@ -1,3 +1,10 @@
+02-05-25 Friday
+MonitorMonkey
+* Fixed bugs in agent for custom events
+* Custom events in frontend now :)
+
+#monitormonkey
+
 01-05-25 Thursday
 MonitorMonkey
 * Custom event support 
