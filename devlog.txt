@@ -1,6 +1,7 @@
 05-05-25 Monday
 MonitorMonkey:
 * Graphing and historic data for custom events
+* Removed 1m from custom events graph view, it's limited to 1m so this would only ever show 1 result. Added 30 min in tho 
 
 #monitormonkey
 
